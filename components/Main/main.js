@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './main.scss';
 
 import Data from '../../data';
+import Row from '../Row/row';
 
 
 export default class Main extends React.Component {
@@ -62,14 +63,38 @@ export default class Main extends React.Component {
 		}
 	}
 
+	renderRows = (row) =>{
+		return (<Row row={row} rowNumber={row[0].row}></Row>)
+	}
+
 	render() {
 		return(
 			<div className='mainContainer'>
 				<h1 className='title'>Lola interview seating chart</h1>
 				<div className="planeContainer">
-					
+					{Object.values(this.state.plane).map(this.renderRows)}
 				</div>
 			</div>
 		)
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
