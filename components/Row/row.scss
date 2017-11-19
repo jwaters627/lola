@@ -1,0 +1,17 @@
+.rowContainer{
+	width: 96%;
+	height: 46px;
+	margin: 0;
+	padding: 0;
+	padding-left: 2%;
+	padding-right: 2%;
+	display: flex;
+	justify-content: space-between;
+	background-color: #ddd;
+	margin-bottom: 14px;
+
+	.rowNumber{
+		margin-left: 4px;
+		margin-right: 4px;
+	}
+}

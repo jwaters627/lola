@@ -4,16 +4,16 @@ import styles from './main.scss';
 import Data from '../../data';
 import Row from '../Row/row';
 
-
 export default class Main extends React.Component {
 	 constructor(props) {
 	    super(props);
 	    this.state = {
-	 		
+	 		plane: {},
+	 		selected: false
 	    };
     }
 
-    componentWillMount(){
+	componentWillMount(){
 		this.organizeRows()
 	}
 
@@ -29,9 +29,8 @@ export default class Main extends React.Component {
 				plane[seat.row] = [seat];
 			}
 		})
-		this.orderRows(plane);
+		this.orderRows(plane)
 	}
-
 
 	// Take the organized by row plane data and go through each row to order the row by seat
 
@@ -48,7 +47,9 @@ export default class Main extends React.Component {
 					return 0
 				}
 			})
-			this.findAisle(plane[row]);
+		// Once the row is ordered send it to the findAisle function to figure out where the aisle is
+		
+			this.findAisle(plane[row])
 		}
 		this.setState({plane: plane})
 	}
@@ -64,13 +65,43 @@ export default class Main extends React.Component {
 	}
 
 	renderRows = (row) =>{
-		return (<Row row={row} rowNumber={row[0].row}></Row>)
+		return (<Row selectedSeat={this.state.selected} selectSeat={this.selectSeat} row={row} rowNumber={row[0].row} rowClass={row[0].class}></Row>)
 	}
+
+	selectSeat = (seat) =>{
+		if(!seat.occupied){
+			this.setState({selected: seat})
+		}
+	}
+	
 
 	render() {
 		return(
 			<div className='mainContainer'>
 				<h1 className='title'>Lola interview seating chart</h1>
+				<div className='keyContainer'>
+					<p className='selectedText'> Selected: {this.state.selected.row} {this.state.selected.seat}</p>
+					<div className='keyItemContainer'>
+						<div className='keyItem occupied'>
+						</div>
+						<p className='keyText'>Occupied</p>
+					</div>
+					<div className='keyItemContainer'>
+						<div className='keyItem selected'>
+						</div>
+						<p className='keyText'>Selected</p>
+					</div>
+					<div className='keyItemContainer'>
+						<div className='keyItem premium'>
+						</div>
+						<p className='keyText'>Premium</p>
+					</div>
+					<div className='keyItemContainer'>
+						<div className='keyItem overWing'>
+						</div>
+						<p className='keyText'>Over Wing</p>
+				</div>
+				</div>
 				<div className="planeContainer">
 					{Object.values(this.state.plane).map(this.renderRows)}
 				</div>
@@ -78,23 +109,3 @@ export default class Main extends React.Component {
 		)
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

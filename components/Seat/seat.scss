@@ -1,0 +1,73 @@
+@import '../../Sass/colors';
+
+
+.seatContainer{
+	width: 6%;
+	height: 60px;
+	text-align: center;
+	line-height: 40px;
+
+	&.first{
+		width: 8%;
+	}
+
+	&.business{
+
+	}
+
+	h4{
+		padding: 0;
+		margin: 0;
+	}
+
+	&.aisle{
+		border: none;
+		background-color: #999;
+		width: 12%;
+		padding-left: 2px;
+		padding-right: 2px;
+		border-left: 1px dashed rgba(255,10,10, 0.3);
+		border-right: 1px dashed rgba(255,10,10, 0.3);
+	}
+
+	.seatLetter{
+		border: 1px solid black;
+		border-radius: 2px;
+		font-weight: 100;
+		background-color: white;
+
+		&.aisle{
+			display: none;
+		}
+
+		&:hover{
+			border: 2px solid blue;
+			cursor: pointer;
+			color: blue;
+			font-weight: 500;
+		}
+
+		&.premium{
+			background-color: $color-premium;
+		}
+
+		&.overWing{
+			background-color: $color-overWing;
+		}
+
+		&.selected{
+			background-color: $color-selected;
+		}
+
+		&.occupied{
+			background-color: $color-occupied;
+
+			&:hover{
+				border: 1px solid black;
+				font-weight: 100;
+				cursor: default;
+				color: black;
+			}
+		}
+	}
+}
