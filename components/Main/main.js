@@ -47,14 +47,28 @@ export default class Main extends React.Component {
 					return 0
 				}
 			})
+			this.findAisle(plane[row]);
 		}
-		console.log(plane)
+		this.setState({plane: plane})
+	}
+
+	// insert an empty space where the aisle will be
+
+	findAisle = (row) =>{
+		for(let i = row.length - 1; i > 1 ; i--){
+			if((row[i].seat.charCodeAt() - row[i - 1].seat.charCodeAt()) > 1){
+				row.splice(i, 0, {name: "Aisle", seat: row[i].seat.row})
+			}
+		}
 	}
 
 	render() {
 		return(
 			<div className='mainContainer'>
-				<h1>Lola Plane</h1>
+				<h1 className='title'>Lola interview seating chart</h1>
+				<div className="planeContainer">
+					
+				</div>
 			</div>
 		)
 	}
