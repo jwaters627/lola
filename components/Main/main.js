@@ -28,6 +28,26 @@ export default class Main extends React.Component {
 				plane[seat.row] = [seat];
 			}
 		})
+		this.orderRows(plane);
+	}
+
+
+	// Take the organized by row plane data and go through each row to order the row by seat
+
+	orderRows = (plane) =>{
+		for(var row in plane){
+			plane[row].sort(function(a,b){
+				if(a.seat < b.seat){
+					return -1
+				}
+				else if(a.seat > b.seat){
+					return 1
+				}
+				else{
+					return 0
+				}
+			})
+		}
 		console.log(plane)
 	}
 
