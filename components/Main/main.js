@@ -14,14 +14,14 @@ export default class Main extends React.Component {
     }
 
 	componentWillMount(){
-		this.organizeRows()
+		this.organizeRows(Data)
 	}
 
 	// Organize the data into rows by going through each seat object and creating a key in the plane object for each row and have its value be an array of each seat in that row.
 
-	organizeRows = () =>{
+	organizeRows = (data) =>{
 		let plane = {};
-		Data.map(function(seat){
+		data.map(function(seat){
 			if(plane[seat.row]){
 				plane[seat.row].push(seat)
 			}
@@ -80,7 +80,7 @@ export default class Main extends React.Component {
 		return(
 			<div className='mainContainer'>
 				<div className='topKey'>
-					<p className='selectedText'> Selected: {this.state.selected.row} {this.state.selected.seat}</p>
+					<p className='selectedText'> Selected Seat: {this.state.selected.row || "none"} {this.state.selected.seat}</p>
 					<div className='keyContainer'>
 					<div className='keyItemContainer'>
 						<div className='keyItem available'>
@@ -106,6 +106,11 @@ export default class Main extends React.Component {
 						<div className='keyItem firstClass'>
 						</div>
 						<p className='keyText'>First Class</p>
+					</div>
+					<div className='keyItemContainer'>
+						<div className='keyItem business'>
+						</div>
+						<p className='keyText'>Business</p>
 					</div>
 				</div>
 				</div>

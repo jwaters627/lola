@@ -7,7 +7,7 @@ export default class Seat extends React.Component {
    constructor(props) {
       super(props);
       this.state = {
-   
+        
       };
     }
   
@@ -29,7 +29,8 @@ export default class Seat extends React.Component {
             'occupied': (this.props.seat.occupied),
             'premium': (this.props.seat.premium),
             'selected': (this.props.selectedSeat == this.props.seat && !this.props.seat.occupied),
-            'firstClass': (this.props.seat.class == 'First')
+            'firstClass': (this.props.seat.class == 'First'),
+            'business': (this.props.seat.class == 'Business')
           } 
         )
 

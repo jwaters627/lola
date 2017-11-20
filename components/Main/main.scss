@@ -52,8 +52,8 @@ body{
 }
 
 .keyContainer{
-	width: 46%;
-	margin-left: 27%;
+	width: 60%;
+	margin-left: 20%;
 	margin-bottom: 14px;
 	background-color: #fff;
 	display: flex;
@@ -85,11 +85,15 @@ body{
 			}
 
 			&.premium{
-				border: 2px solid $color-premium;
+				background-color: $color-premium;
 			}
 
 			&.firstClass{
-				border: 2px solid $first-class;
+				background-color: $first-class;
+			}
+
+			&.business{
+				background-color: $color-business;
 			}
 		}
 

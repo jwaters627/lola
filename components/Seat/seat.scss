@@ -18,12 +18,11 @@
 
 	&.aisle{
 		border: none;
-		background-color: #999;
-		width: 8%;
+		background-color: #fff;
+		width: 4%;
 		padding-left: 2px;
 		padding-right: 2px;
-		border-left: 1px dashed rgba(255,10,10, 0.3);
-		border-right: 1px dashed rgba(255,10,10, 0.3);
+		background-color: rgba(0,0,0,0.05);
 	}
 
 	.seatLetter{
@@ -32,6 +31,7 @@
 		height: 30px;
 		width: 30px;
 		background-color: $color-available;
+		font-size: 10px;
 
 		&.aisle{
 			display: none;
@@ -44,7 +44,7 @@
 		}
 
 		&.premium{
-			border: 2px solid $color-premium;
+			border-right: 8px solid $color-premium;
 		}
 
 		&.selected{
@@ -62,11 +62,11 @@
 		}
 
 		&.firstClass{
-			border: 2px solid $first-class;
+			border-right: 14px solid $first-class;
 		}
 
-		&.businessClass{
-
+		&.business{
+			border-right: 10px solid $color-business;
 		}
 	}
 }
