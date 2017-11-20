@@ -28,8 +28,8 @@ export default class Seat extends React.Component {
             'aisle': (this.props.seat.name == 'Aisle'),
             'occupied': (this.props.seat.occupied),
             'premium': (this.props.seat.premium),
-            'overWing': (this.props.seat.overWing),
-            'selected': (this.props.selectedSeat == this.props.seat && !this.props.seat.occupied)
+            'selected': (this.props.selectedSeat == this.props.seat && !this.props.seat.occupied),
+            'firstClass': (this.props.seat.class == 'First')
           } 
         )
 

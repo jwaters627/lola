@@ -9,7 +9,7 @@ export default class Main extends React.Component {
 	    super(props);
 	    this.state = {
 	 		plane: {},
-	 		selected: false
+	 		selected: false,
 	    };
     }
 
@@ -69,6 +69,7 @@ export default class Main extends React.Component {
 	}
 
 	selectSeat = (seat) =>{
+		console.log(seat)
 		if(!seat.occupied){
 			this.setState({selected: seat})
 		}
@@ -78,9 +79,14 @@ export default class Main extends React.Component {
 	render() {
 		return(
 			<div className='mainContainer'>
-				<h1 className='title'>Lola interview seating chart</h1>
-				<div className='keyContainer'>
+				<div className='topKey'>
 					<p className='selectedText'> Selected: {this.state.selected.row} {this.state.selected.seat}</p>
+					<div className='keyContainer'>
+					<div className='keyItemContainer'>
+						<div className='keyItem available'>
+						</div>
+						<p className='keyText'>Available</p>
+					</div>
 					<div className='keyItemContainer'>
 						<div className='keyItem occupied'>
 						</div>
@@ -97,9 +103,10 @@ export default class Main extends React.Component {
 						<p className='keyText'>Premium</p>
 					</div>
 					<div className='keyItemContainer'>
-						<div className='keyItem overWing'>
+						<div className='keyItem firstClass'>
 						</div>
-						<p className='keyText'>Over Wing</p>
+						<p className='keyText'>First Class</p>
+					</div>
 				</div>
 				</div>
 				<div className="planeContainer">
